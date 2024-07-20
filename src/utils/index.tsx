@@ -42,3 +42,14 @@ export function checkAuthToken() {
   }
   return false;
 }
+
+export function truncateString(str: string) {
+  // Check if string length is greater than 10
+  if (str.length > 20) {
+    // Truncate the string and add '...'
+    return str.substring(0, 20) + "...";
+  } else {
+    // If length is 10 or less, return the original string
+    return str;
+  }
+}

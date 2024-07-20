@@ -25,8 +25,8 @@ function Button({
   };
   return (
     <StyledButton disabled={disabled} style={sx} onClick={click}>
-      {icon}
       {placeholder}
+      {icon}
       {children}
     </StyledButton>
   );
