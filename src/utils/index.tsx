@@ -44,12 +44,18 @@ export function checkAuthToken() {
 }
 
 export function truncateString(str: string) {
-  // Check if string length is greater than 10
   if (str.length > 20) {
-    // Truncate the string and add '...'
     return str.substring(0, 20) + "...";
   } else {
-    // If length is 10 or less, return the original string
     return str;
   }
+}
+
+export function formatDateString(isoString: string) {
+  const date = new Date(isoString);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+
+  return `${day}-${month}-${year}`;
 }

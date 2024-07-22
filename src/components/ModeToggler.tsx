@@ -1,6 +1,5 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode } from "../store/themeAction";
+import { setMode } from "../store/action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
@@ -15,7 +14,10 @@ function ModeToggle() {
 
   return (
     <TModeContainer onClick={toggleMode}>
-      <FontAwesomeIcon icon={mode === "light" ? faSun : faMoon} color={mode === "light" ? 'black' : 'white'} />
+      <FontAwesomeIcon
+        icon={mode === "light" ? faSun : faMoon}
+        color={mode === "light" ? "black" : "white"}
+      />
     </TModeContainer>
   );
 }

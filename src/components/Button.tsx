@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { BarLoader } from "react-spinners";
 import styled, { CSSProperties } from "styled-components";
 
 type Props = {
@@ -8,6 +9,8 @@ type Props = {
   icon?: ReactNode;
   disabled?: boolean;
   children?: ReactNode;
+  loading?: boolean;
+  id?: string;
 };
 
 function Button({
@@ -17,6 +20,8 @@ function Button({
   icon,
   disabled = false,
   children,
+  loading = false,
+  id,
 }: Props) {
   const click = () => {
     if (!disabled) {
@@ -24,10 +29,16 @@ function Button({
     }
   };
   return (
-    <StyledButton disabled={disabled} style={sx} onClick={click}>
-      {placeholder}
-      {icon}
-      {children}
+    <StyledButton disabled={disabled} style={sx} onClick={click} id={id}>
+      {loading ? (
+        <BarLoader />
+      ) : (
+        <>
+          {placeholder}
+          {icon}
+          {children}
+        </>
+      )}
     </StyledButton>
   );
 }

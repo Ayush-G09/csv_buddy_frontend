@@ -20,7 +20,7 @@ function App() {
 const Root = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${(p) => p.theme.colors.base100};
+background-color: ${(p) => p.theme.colors.base200};
   transition: background-color 0.3s, transform 0.1s;
 `;
 

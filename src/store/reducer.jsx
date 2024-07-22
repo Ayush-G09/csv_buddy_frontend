@@ -1,8 +1,9 @@
-import { checkAuthToken } from "../utils"; // Ensure you have the correct path to your auth file
+import { checkAuthToken } from "../utils";
 
 const initialState = {
   mode: localStorage.getItem("mode") || "light",
-  isUserLoggedIn: checkAuthToken(),  // Initialize based on checkAuthToken
+  isUserLoggedIn: checkAuthToken(),
+  docs: [],
 };
 
 const themeReducer = (state = initialState, action) => {
@@ -11,6 +12,8 @@ const themeReducer = (state = initialState, action) => {
       return { ...state, mode: action.payload };
     case "SET_IS_USER_LOGGED_IN":
       return { ...state, isUserLoggedIn: action.payload };
+    case "SET_DOCS":
+      return { ...state, docs: action.payload };
     default:
       return state;
   }

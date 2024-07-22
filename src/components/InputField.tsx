@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled, { CSSProperties } from "styled-components";
 
 type Props = {
@@ -10,6 +10,7 @@ type Props = {
   onChange: (value: string) => void;
   ierror?: boolean;
   sx?: CSSProperties;
+  id?: string;
 };
 
 type State = {
@@ -25,6 +26,7 @@ function InputField({
   onChange,
   ierror = false,
   sx,
+  id,
 }: Props) {
   const [state, setState] = useState<State>({
     inputType: type === "date" ? "text" : type,
@@ -37,19 +39,19 @@ function InputField({
   };
 
   return (
-        <Field
-          width={width}
-          height={height}
-          id={placeholder}
-          placeholder={placeholder}
-          type={state.inputType}
-          onFocus={handleFocus}
-          value={value}
-          onChange={(e) => onChange!(e.target.value)}
-          ierror={ierror}
-          autoComplete="off"
-          style={sx}
-        />
+    <Field
+      width={width}
+      height={height}
+      id={id ? id : placeholder}
+      placeholder={placeholder}
+      type={state.inputType}
+      onFocus={handleFocus}
+      value={value}
+      onChange={(e) => onChange!(e.target.value)}
+      ierror={ierror}
+      autoComplete="off"
+      style={sx}
+    />
   );
 }
 
